@@ -8,4 +8,8 @@ pipeline {
       }
     }
   }
+  environment {
+    DRINK = 'whey'
+    FOOD = 'potato'
+  }
 }
