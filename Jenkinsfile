@@ -3,13 +3,22 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        echo 'Building'
-        sh 'pwd'
-        timeout(time: 60) {
-          sh 'sleep 3'
-          echo 'Slept for 2 seconds'
-        }
-        
+        parallel(
+          "Build": {
+            echo 'Building'
+            sh 'pwd'
+            timeout(time: 60) {
+              sh 'sleep 3'
+              echo 'Slept for 2 seconds'
+            }
+            
+            
+          },
+          "Build2": {
+            echo 'Building Build2'
+            
+          }
+        )
       }
     }
   }
